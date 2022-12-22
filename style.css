@@ -13,6 +13,10 @@ textarea{
   padding: 10px;
 }
 
+title {
+  font-style: italic;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
