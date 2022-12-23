@@ -16,10 +16,6 @@ for (let i = 0; i < militaryTime.length; i++) {
         document.getElementById(i).addClass("future");
     }
 
-    if (localStorage.getItem(i)) {
-        document.getElementById(i).value = localStorage.getItem(i);
-    }
-
     saveBtn[i].addEventListener("click", function(event) {
         event.preventDefault;
         var id = this.getAttribute("id");
