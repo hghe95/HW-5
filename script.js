@@ -19,13 +19,6 @@ for (let i = 0; i < militaryTime.length; i++) {
     if (localStorage.getItem(i)) {
         document.getElementById(i).value = localStorage.getItem(i);
     }
-
-    saveBtn[i].addEventListener("click",function(){
-        var id = this.getAttribute("data-id");
-        var text = document.getElementById(id).value;
-         localStorage.setItem(id,text);
-        console.log(text);
-    })
 }
 
 saveBtn.addEventListener("click", function(event) {
