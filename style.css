@@ -27,17 +27,21 @@ title {
 
 .description{
   white-space: pre-wrap;
+  border: 1px;
+  padding-left: 1px;
 }
 
 .time-block{
   text-align: center;
   border-radius: 15px;
+  padding: 2px;
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;
+  padding-bottom: 5px;
 }
 
 .hour {

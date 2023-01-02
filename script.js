@@ -1,34 +1,29 @@
 let currentTime = moment().hour()
 const saveBtn = document.querySelector(".saveBtn");
+let userEvent = $(`textarea .row`);
 document.querySelector(`#currentDay`).textContent = moment().format(`MMM Do YYYY`);
-const militaryTime = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+console.log(currentTime);
 
 
-for (let i = 0; i < militaryTime.length; i++) {
-    if (currentTime > militaryTime[i]) {
-        console.log(i);
-        document.getElementById(i).addClass("past");
-    } else if (currentTime === militaryTime[i]) {
-        console.log(i);
-        document.getElementById(i).addClass("present");
-    } else if (currentTime < militaryTime[i]) {
-        console.log(i);
-        document.getElementById(i).addClass("future");
+$(userEvent).each(() => {
+    let hour = $(this.data("id"));
+    if (currentTime > hour) {
+        $(this).addClass("past");
+    } else if (currentTime === hour) {
+        $(this).addClass("present");
+    } else if (currentTime < hour) {
+        $(this).addClass("future");
     }
+});    
 
-    saveBtn[i].addEventListener("click", function(event) {
-        event.preventDefault;
-        var id = this.getAttribute("id");
-        var text = document.getElementById(id).value;
-        localStorage.setItem(id, text);
-    });
+saveBtn[i].on("click", function() {
+    const btnId = $(this).data("btnId");
+    const text = $(this).siblings("textarea").val();
+    localStorage.setItem(btnId, text);
+    console.log(text);
+});
 
-    if(localStorage.getItem(i)) {
-        document.getElementById(i).value = localStorage.getItem(i);
-    }
+if(localStorage.getItem(i)) {
+    document.getElementById(i).val() = localStorage.getItem(i);
 }
-
-
-
-
 
