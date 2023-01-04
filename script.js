@@ -1,29 +1,33 @@
 let currentTime = moment().hour()
-const saveBtn = document.querySelector(".saveBtn");
+let saveBtn = document.querySelectorAll(".saveBtn");
 let userEvent = $(`textarea .row`);
 document.querySelector(`#currentDay`).textContent = moment().format(`MMM Do YYYY`);
 console.log(currentTime);
 
-
 $(userEvent).each(() => {
-    let hour = $(this.data("id"));
-    if (currentTime > hour) {
+    let time = $(this.data("hour"));
+    console.log(time);
+    if (currentTime > time) {
         $(this).addClass("past");
-    } else if (currentTime === hour) {
+    } else if (currentTime === time) {
         $(this).addClass("present");
-    } else if (currentTime < hour) {
+    } else if (currentTime < time) {
         $(this).addClass("future");
     }
+    
+    let eventHour = $(this).data("hour");
+    let eventTitle = localStorage.getItem(eventHour);
+    $(this).val(eventTitle);
+
+    saveBtn.addEventListener("click",() => {
+        console.log('i clicked the button');
+        let hour = $(this).data("id");
+        let text = $(this).siblings("textarea").val();
+        console.log(hour);
+        localStorage.setItem(hour, text);
+        console.log(localStorage.getItem(hour));
+    });
 });    
 
-saveBtn[i].on("click", function() {
-    const btnId = $(this).data("btnId");
-    const text = $(this).siblings("textarea").val();
-    localStorage.setItem(btnId, text);
-    console.log(text);
-});
 
-if(localStorage.getItem(i)) {
-    document.getElementById(i).val() = localStorage.getItem(i);
-}
 
